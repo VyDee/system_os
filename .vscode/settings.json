@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "frame_buffer.h": "c",
+        "interrupts.h": "c"
+    }
+}

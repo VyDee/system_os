@@ -4,13 +4,13 @@
 
 /*char pointer*/
 char* memStart = (char*) 0x00200000; //start at 2MB
-char* memEnd = (char*) 0x01F0FF7FE;
-char* dataStart = (char*) 0x010FF7FF;
-char* dataEnd = (char*) 0x01FFEFFE; // start at 31.99MB
+char* memEnd = (char*) 0x107FFFF;
+char* dataStart = (char*) 0x1080000;
+char* dataEnd = (char*) 0x1F00000; // start at 31.99MB
 
 void clearAllMemory()
 {
-    for (char* c = memStart; c <= memEnd; c++)
+    for (char* c = memStart; c <= (char*)0x1F00000; c++)
     {
         *c = 0;
     }
@@ -23,14 +23,6 @@ void free_mem(char* startAddress, int num)
         *c = 0;
     }
 }
-
-// void memory_init()
-// {
-//     for(char* c = memStart; c < memEnd; c++)
-//     {
-//         *c = 1;
-//     }
-// }
 
 void mark_mem(char* start, int num)
 {

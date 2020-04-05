@@ -1,12 +1,9 @@
 #include "interrupts.h"
 #include "pic.h"
+#include "string.h"
 
 struct IDTDescriptor idt_descriptors[INTERRUPTS_DESCRIPTOR_COUNT];
 struct IDT idt;
-
-#define FB_BLACK 0
-#define FB_GREEN 2
-#define FB_WHITE 15
 
 void interrupts_init_descriptor(int index, unsigned int address)
 {
@@ -40,19 +37,63 @@ void interrupts_install_idt()
 	pic_remap(PIC_1_OFFSET, PIC_2_OFFSET);
 }
 
-int i = 0;
+int numOfChar = 0;
 void interrupt_handler(__attribute__((unused)) struct cpu_state cpu, unsigned int interrupt, __attribute__((unused)) struct stack_state stack)
 {
 	unsigned char scan_code;
 	char ascii;
-    scan_code = keyboard_read_scan_code(); 
-    ascii = keyboard_scan_code_to_ascii(scan_code);
+    scan_code = keyboard_read_scan_code();
+	if(!(scan_code >> 7))
+	{
+		if(scan_code == 0x0e) //Backspace
+		{
+			strshorten(interrupt_input,1);
+		}
+		else if (scan_code == 0x1c) //Enter key
+		{
+			int Tokenslen = count_char(interrupt_input,' ') + 1;
+			char* Tokens[Tokenslen];
+			strtok(Tokens,interrupt_input);
+			char* s = get_mem(strlen(interrupt_input)+1);
+			strcpy(s,"\0",1);
+			for (int i = 0; i < Tokenslen ; i++)
+			{
+				strcat(s,Tokens[i]);
+				if(i < (Tokenslen - 1))
+				{
+					strcat(s,",");
+				}
+			}
+			// char* s = get_mem(strlen(interrupt_prompt_string)+strlen(interrupt_input)+1);
+			// strcpy(s,"\0",1);
+			// for (int i = 0; i < (strlen(interrupt_prompt_string)+ strlen(interrupt_input)); i++ )
+			// {
+			// 	strcat(s,"?");
+			// }
+			fb_clear();
+			fb_write_string(0,interrupt_prompt_string,strlen(interrupt_prompt_string));
+			fb_write_string(strlen(interrupt_prompt_string)*2,interrupt_input,strlen(interrupt_input));
+			
+			//fb_write_string(80*2*((strlen(interrupt_prompt_string) + strlen(interrupt_input)/ 80*2)),s, strlen(s));
+			fb_write_string(80*2*5,s, strlen(s));
+		}
+		else
+		{
+			ascii = keyboard_scan_code_to_ascii(scan_code);
+			char* temp = get_mem(2);
+			strcpy(temp,&ascii,1);
+			strcat(interrupt_input,temp);
+			free_mem(temp, strlen(temp));
+		}
 
-	if(ascii > 0)
-	{	
-		fb_write_cell(0+i*2,ascii,FB_GREEN,FB_WHITE);
-		i++;			
+		if(scan_code != 0x1c)
+		{
+			fb_clear();
+			fb_write_string(0,interrupt_prompt_string,strlen(interrupt_prompt_string));
+			fb_write_string(strlen(interrupt_prompt_string)*2,interrupt_input,strlen(interrupt_input));
+		}
 	}
-
+	
     pic_acknowledge(interrupt);
 }
+

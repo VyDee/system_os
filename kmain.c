@@ -5,19 +5,24 @@
 #include "segments.h"
 #include "interrupts.h"
 
+char* test;
+
 int main() 
 {
-    
+    //clearAllMemory();
     segments_install_gdt();
 	interrupts_install_idt();
 
-    fb_clear();
-    // char* a = get_mem(11);
-    // strcpy(a,"hello world",11);
-    // a[11] = '!';
-    // fb_write_string(0, a ,12);
-    clearAllMemory();
+    interrupt_prompt_string = get_mem(7);
+    strcpy(interrupt_prompt_string, "Fish> ",6);
 
-    
+    interrupt_input = get_mem(80*25);
+    strcpy(interrupt_input,"\0",1);
+
+    interrupt_output = get_mem(80*25);
+    strcpy(interrupt_output,"\0",1);
+
+    fb_clear();
+    fb_write_string(0,interrupt_prompt_string,strlen(interrupt_prompt_string));
     return 0;
 }
