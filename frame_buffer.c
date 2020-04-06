@@ -46,6 +46,7 @@ void fb_move_cursor(unsigned short pos)
     outb(FB_DATA_PORT, pos & 0x00FF);
 }
 
+
 void fb_write_string(int offset, char* s, int length)
 {
     int i;

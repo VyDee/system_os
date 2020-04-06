@@ -64,18 +64,11 @@ void interrupt_handler(__attribute__((unused)) struct cpu_state cpu, unsigned in
 					strcat(s,",");
 				}
 			}
-			// char* s = get_mem(strlen(interrupt_prompt_string)+strlen(interrupt_input)+1);
-			// strcpy(s,"\0",1);
-			// for (int i = 0; i < (strlen(interrupt_prompt_string)+ strlen(interrupt_input)); i++ )
-			// {
-			// 	strcat(s,"?");
-			// }
+			int offset = (strlen(interrupt_prompt_string) + strlen(interrupt_input))/80 + 1;
 			fb_clear();
 			fb_write_string(0,interrupt_prompt_string,strlen(interrupt_prompt_string));
 			fb_write_string(strlen(interrupt_prompt_string)*2,interrupt_input,strlen(interrupt_input));
-			
-			//fb_write_string(80*2*((strlen(interrupt_prompt_string) + strlen(interrupt_input)/ 80*2)),s, strlen(s));
-			fb_write_string(80*2*5,s, strlen(s));
+			fb_write_string(80*2*offset,s, strlen(s));
 		}
 		else
 		{
