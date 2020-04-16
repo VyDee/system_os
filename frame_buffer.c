@@ -46,7 +46,6 @@ void fb_move_cursor(unsigned short pos)
     outb(FB_DATA_PORT, pos & 0x00FF);
 }
 
-
 void fb_write_string(int offset, char* s, int length)
 {
     int i;
@@ -62,4 +61,43 @@ void fb_clear()
     {
         fb_write_cell(i*2, ' ', FB_BLACK, FB_BLACK);
     }
+}
+
+void fb_write_int(int offset, int i)
+{
+    fb_write_cell(offset + 0*2,'0',FB_BLACK,FB_GREEN);
+    fb_write_cell(offset + 1*2,'x',FB_BLACK,FB_GREEN);
+
+    int pos = 2;
+    char* p = (char*) &i;
+
+    for(int j = 3; j >=0; j--)
+    {
+        char byte = *(p+j);
+        char left_bit = (byte & 0xF0) >> 4;
+        char right_bit = byte & 0x0F;
+
+        if (left_bit < 10)
+        {
+            left_bit += 48;
+        }
+        else
+        {
+            left_bit +=55;
+        }
+        
+        if(right_bit < 10)
+        {
+            right_bit +=48;
+        }
+        else
+        {
+            right_bit += 55;
+        }
+
+        fb_write_cell(offset + pos*2, left_bit, FB_BLACK, FB_GREEN);
+        fb_write_cell(offset + (pos+1)*2,right_bit,FB_BLACK,FB_GREEN);
+        pos = pos + 2;
+    }
+
 }

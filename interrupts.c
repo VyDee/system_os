@@ -53,22 +53,32 @@ void interrupt_handler(__attribute__((unused)) struct cpu_state cpu, unsigned in
 		{
 			int Tokenslen = count_char(interrupt_input,' ') + 1;
 			char* Tokens[Tokenslen];
+			//char** Tokens = get_mem(Tokenslen*4);
 			strtok(Tokens,interrupt_input);
-			char* s = get_mem(strlen(interrupt_input)+1);
-			strcpy(s,"\0",1);
-			for (int i = 0; i < Tokenslen ; i++)
-			{
-				strcat(s,Tokens[i]);
-				if(i < (Tokenslen - 1))
-				{
-					strcat(s,",");
-				}
-			}
+			// char* s = get_mem(strlen(interrupt_input)+1);
+			// strcpy(s,"\0",1);
+			// for (int i = 0; i < Tokenslen ; i++)
+			// {
+			// 	strcat(s,Tokens[i]);
+			// 	if(i < (Tokenslen - 1))
+			// 	{
+			// 		strcat(s,",");
+			// 	}
+			// }
 			int offset = (strlen(interrupt_prompt_string) + strlen(interrupt_input))/80 + 1;
+			int pos = 0;
 			fb_clear();
 			fb_write_string(0,interrupt_prompt_string,strlen(interrupt_prompt_string));
 			fb_write_string(strlen(interrupt_prompt_string)*2,interrupt_input,strlen(interrupt_input));
-			fb_write_string(80*2*offset,s, strlen(s));
+			// fb_write_int(80*2*offset,(int) &Tokens[0]);
+			// fb_write_int((80*offset+10)*2,(int) &Tokens[1]);
+			for (int i = 0; i < Tokenslen; i++)
+			{
+				fb_write_int((80*offset+pos)*2,(int) Tokens[i]);
+				//fb_write_string((80*offset+pos)*2,Tokens[i],strlen(Tokens[i]));
+				pos +=11;
+			}
+			
 		}
 		else
 		{

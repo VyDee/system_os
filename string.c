@@ -86,9 +86,16 @@ int count_char(char* src, char searchChar)
 
 void strtok(char** destArray,char* src)
 {  
+    int arraylen = count_char(src,' ') + 1;
+    for (int i = 0; i < arraylen; i++)
+    {
+        destArray[i]= get_mem(4);
+    }
+
+    //char* srcArray[arraylen];
     int srclen = strlen(src);
     int pos = 0;
-    int copyStartPos = 0;
+    //int copyStartPos = 0;
     int countMem = 0;
     for (int i = 0; i <= srclen; i++)
     {
@@ -98,14 +105,17 @@ void strtok(char** destArray,char* src)
         }
         else
         {
+            //hello world 2020
+            //srcArray[pos]= get_mem(countMem + 1) ;
+
             destArray[pos]= get_mem(countMem + 1);
-            strcpyAtPos(destArray[pos],src,copyStartPos,i);
+            //strcpyAtPos(destArray[pos],src,copyStartPos,i);
             countMem = 0;
-            copyStartPos = i + 1;
+            //copyStartPos = i + 1;
             pos ++;
         }
     }
-    destArray[pos]= get_mem(countMem + 1);
-    strcpyAtPos(destArray[pos],src,copyStartPos,srclen);
+    destArray[pos]= (char*) get_mem(countMem + 1);
+    //strcpyAtPos(destArray[pos],src,copyStartPos,srclen);
 }
 

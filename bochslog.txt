@@ -32,38 +32,38 @@
 00000000000i[     ]   SB16 support: yes
 00000000000i[     ]   USB support: yes
 00000000000i[     ]   VGA extension support: vbe cirrus
-00000000000i[MEM0 ] allocated memory at 0x7f0f394e5010. after alignment, vector=0x7f0f394e6000
+00000000000i[MEM0 ] allocated memory at 0x7f0382aeb010. after alignment, vector=0x7f0382aec000
 00000000000i[MEM0 ] 32.00MB
 00000000000i[MEM0 ] mem block size = 0x00100000, blocks=32
 00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/usr/share/bochs/BIOS-bochs-latest')
 00000000000i[VTIME] using 'realtime pit' synchronization method
-00000000000i[     ] lt_dlhandle is 0x561798e273a0
+00000000000i[     ] lt_dlhandle is 0x560e675893a0
 00000000000i[PLGIN] loaded plugin libbx_hdimage.so
-00000000000i[     ] lt_dlhandle is 0x561798e27c80
+00000000000i[     ] lt_dlhandle is 0x560e67589c80
 00000000000i[PLGIN] loaded plugin libbx_pci.so
-00000000000i[     ] lt_dlhandle is 0x561798e28810
+00000000000i[     ] lt_dlhandle is 0x560e6758a810
 00000000000i[PLGIN] loaded plugin libbx_pci2isa.so
-00000000000i[     ] lt_dlhandle is 0x561798e29220
+00000000000i[     ] lt_dlhandle is 0x560e6758b220
 00000000000i[PLGIN] loaded plugin libbx_acpi.so
-00000000000i[     ] lt_dlhandle is 0x561798e29c30
+00000000000i[     ] lt_dlhandle is 0x560e6758bc30
 00000000000i[PLGIN] loaded plugin libbx_cmos.so
-00000000000i[     ] lt_dlhandle is 0x561798e2a570
+00000000000i[     ] lt_dlhandle is 0x560e6758c570
 00000000000i[PLGIN] loaded plugin libbx_dma.so
-00000000000i[     ] lt_dlhandle is 0x561798e2b010
+00000000000i[     ] lt_dlhandle is 0x560e6758d010
 00000000000i[PLGIN] loaded plugin libbx_pic.so
-00000000000i[     ] lt_dlhandle is 0x561798e2b8c0
+00000000000i[     ] lt_dlhandle is 0x560e6758d8c0
 00000000000i[PLGIN] loaded plugin libbx_pit.so
-00000000000i[     ] lt_dlhandle is 0x561798e2c300
+00000000000i[     ] lt_dlhandle is 0x560e6758e300
 00000000000i[PLGIN] loaded plugin libbx_floppy.so
-00000000000i[     ] lt_dlhandle is 0x561798e2cf00
+00000000000i[     ] lt_dlhandle is 0x560e6758ef00
 00000000000i[PLGIN] loaded plugin libbx_vga.so
-00000000000i[     ] lt_dlhandle is 0x561798e2d770
+00000000000i[     ] lt_dlhandle is 0x560e6758f770
 00000000000i[PLGIN] loaded plugin libbx_ioapic.so
-00000000000i[     ] lt_dlhandle is 0x561798e2dfc0
+00000000000i[     ] lt_dlhandle is 0x560e6758ffc0
 00000000000i[PLGIN] loaded plugin libbx_keyboard.so
-00000000000i[     ] lt_dlhandle is 0x561798e2ea50
+00000000000i[     ] lt_dlhandle is 0x560e67590a50
 00000000000i[PLGIN] loaded plugin libbx_harddrv.so
-00000000000i[     ] lt_dlhandle is 0x561798e40b80
+00000000000i[     ] lt_dlhandle is 0x560e675a2b80
 00000000000i[PLGIN] loaded plugin libbx_pci_ide.so
 00000000000i[PLGIN] init_dev of 'pci' plugin device by virtual method
 00000000000i[PCI  ] 440FX Host bridge present at device 0, function 0
@@ -71,7 +71,7 @@
 00000000000i[PCI  ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS ] Using local time for initial clock
-00000000000i[CMOS ] Setting initial clock to: Sun Apr  5 19:21:38 2020 (time0=1586132498)
+00000000000i[CMOS ] Setting initial clock to: Wed Apr 15 22:45:42 2020 (time0=1587008742)
 00000000000i[PLGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA  ] channel 4 used by cascade
 00000000000i[PLGIN] init_dev of 'pic' plugin device by virtual method
@@ -178,46 +178,73 @@
 00000319530i[BIOS ] Shutdown flag 0
 00000320143i[BIOS ] ram_size=0x02000000
 00000320589i[BIOS ] ram_end=32MB
-00000332685i[BIOS ] Found 1 cpu(s)
-00000346883i[BIOS ] bios_table_addr: 0x000fa438 end=0x000fcc00
-00000674688i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
-00001002626i[P2I  ] PCI IRQ routing: PIRQA# set to 0x0b
-00001002651i[P2I  ] PCI IRQ routing: PIRQB# set to 0x09
-00001002676i[P2I  ] PCI IRQ routing: PIRQC# set to 0x0b
-00001002701i[P2I  ] PCI IRQ routing: PIRQD# set to 0x09
-00001002711i[P2I  ] write: ELCR2 = 0x0a
-00001003505i[BIOS ] PIIX3/PIIX4 init: elcr=00 0a
-00001011231i[BIOS ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
-00001013543i[BIOS ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
-00001015694i[BIOS ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
-00001015924i[PIDE ] new BM-DMA address: 0xc000
-00001016561i[BIOS ] region 4: 0x0000c000
-00001018631i[BIOS ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
-00001018862i[ACPI ] new irq line = 11
-00001018879i[ACPI ] new irq line = 9
-00001018913i[ACPI ] new PM base address: 0xb000
-00001018927i[ACPI ] new SM base address: 0xb100
-00001018954i[PCI  ] setting SMRAM control register to 0x4a
-00001183094i[CPU0 ] Enter to System Management Mode
-00001183094i[CPU0 ] enter_system_management_mode: temporary disable VMX while in SMM mode
-00001183104i[CPU0 ] RSM: Resuming from System Management Mode
-00001347162i[PCI  ] setting SMRAM control register to 0x0a
-00001362032i[BIOS ] MP table addr=0x000fa510 MPC table addr=0x000fa440 size=0xc8
-00001363775i[BIOS ] SMBIOS table addr=0x000fa520
-00001363843i[MEM0 ] allocate_block: block=0x1f used 0x2 of 0x20
-00001366697i[BIOS ] Firmware waking vector 0x1ff00cc
-00001371536i[BIOS ] ACPI tables: RSDP addr=0x000fa640 ACPI DATA addr=0x01ff0000 size=0x1f22
-00001371573i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
-00001372314i[BIOS ] bios_table_cur_addr: 0x000fa664
-00001499934i[VBIOS] VGABios $Id: vgabios.c,v 1.75 2011/10/15 14:07:21 vruppert Exp $
-00001500005i[BXVGA] VBE known Display Interface b0c0
-00001500037i[BXVGA] VBE known Display Interface b0c5
-00001502962i[VBIOS] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
-00005714857i[BIOS ] IDE time out
-00128214144i[BIOS ] Booting from 07c0:0000
-00128314562i[BIOS ] int13_harddisk: function 41, unmapped device for ELDL=80
-00128318242i[BIOS ] int13_harddisk: function 08, unmapped device for ELDL=80
-00128321907i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
-00129925225i[MEM0 ] allocate_block: block=0x1 used 0x3 of 0x20
-00130102693i[MEM0 ] allocate_block: block=0x2 used 0x4 of 0x20
-00130102906i[MEM0 ] allocate_block: block=0x10 used 0x5 of 0x20
+00000332703i[BIOS ] Found 1 cpu(s)
+00000346901i[BIOS ] bios_table_addr: 0x000fa438 end=0x000fcc00
+00000674706i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
+00001002644i[P2I  ] PCI IRQ routing: PIRQA# set to 0x0b
+00001002669i[P2I  ] PCI IRQ routing: PIRQB# set to 0x09
+00001002694i[P2I  ] PCI IRQ routing: PIRQC# set to 0x0b
+00001002719i[P2I  ] PCI IRQ routing: PIRQD# set to 0x09
+00001002729i[P2I  ] write: ELCR2 = 0x0a
+00001003523i[BIOS ] PIIX3/PIIX4 init: elcr=00 0a
+00001011249i[BIOS ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001013561i[BIOS ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001015712i[BIOS ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001015942i[PIDE ] new BM-DMA address: 0xc000
+00001016579i[BIOS ] region 4: 0x0000c000
+00001018649i[BIOS ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001018880i[ACPI ] new irq line = 11
+00001018897i[ACPI ] new irq line = 9
+00001018931i[ACPI ] new PM base address: 0xb000
+00001018945i[ACPI ] new SM base address: 0xb100
+00001018972i[PCI  ] setting SMRAM control register to 0x4a
+00001183112i[CPU0 ] Enter to System Management Mode
+00001183112i[CPU0 ] enter_system_management_mode: temporary disable VMX while in SMM mode
+00001183122i[CPU0 ] RSM: Resuming from System Management Mode
+00001347180i[PCI  ] setting SMRAM control register to 0x0a
+00001362050i[BIOS ] MP table addr=0x000fa510 MPC table addr=0x000fa440 size=0xc8
+00001363793i[BIOS ] SMBIOS table addr=0x000fa520
+00001363861i[MEM0 ] allocate_block: block=0x1f used 0x2 of 0x20
+00001366715i[BIOS ] Firmware waking vector 0x1ff00cc
+00001371554i[BIOS ] ACPI tables: RSDP addr=0x000fa640 ACPI DATA addr=0x01ff0000 size=0x1f22
+00001371591i[PCI  ] 440FX PMC write to PAM register 59 (TLB Flush)
+00001372332i[BIOS ] bios_table_cur_addr: 0x000fa664
+00001499952i[VBIOS] VGABios $Id: vgabios.c,v 1.75 2011/10/15 14:07:21 vruppert Exp $
+00001500023i[BXVGA] VBE known Display Interface b0c0
+00001500055i[BXVGA] VBE known Display Interface b0c5
+00001502980i[VBIOS] VBE Bios $Id: vbe.c,v 1.64 2011/07/19 18:25:05 vruppert Exp $
+00005715151i[BIOS ] IDE time out
+00111287068i[BIOS ] Booting from 07c0:0000
+00111387486i[BIOS ] int13_harddisk: function 41, unmapped device for ELDL=80
+00111391166i[BIOS ] int13_harddisk: function 08, unmapped device for ELDL=80
+00111394831i[BIOS ] *** int 15h function AX=00c0, BX=0000 not yet supported!
+00112998196i[MEM0 ] allocate_block: block=0x1 used 0x3 of 0x20
+00113175375i[MEM0 ] allocate_block: block=0x2 used 0x4 of 0x20
+00118418255i[MEM0 ] allocate_block: block=0x3 used 0x5 of 0x20
+00123661135i[MEM0 ] allocate_block: block=0x4 used 0x6 of 0x20
+00128904015i[MEM0 ] allocate_block: block=0x5 used 0x7 of 0x20
+00134146895i[MEM0 ] allocate_block: block=0x6 used 0x8 of 0x20
+00139389775i[MEM0 ] allocate_block: block=0x7 used 0x9 of 0x20
+00144632655i[MEM0 ] allocate_block: block=0x8 used 0xa of 0x20
+00149875535i[MEM0 ] allocate_block: block=0x9 used 0xb of 0x20
+00155118415i[MEM0 ] allocate_block: block=0xa used 0xc of 0x20
+00160361295i[MEM0 ] allocate_block: block=0xb used 0xd of 0x20
+00165604175i[MEM0 ] allocate_block: block=0xc used 0xe of 0x20
+00170847055i[MEM0 ] allocate_block: block=0xd used 0xf of 0x20
+00176089935i[MEM0 ] allocate_block: block=0xe used 0x10 of 0x20
+00181332815i[MEM0 ] allocate_block: block=0xf used 0x11 of 0x20
+00186575695i[MEM0 ] allocate_block: block=0x10 used 0x12 of 0x20
+00191818575i[MEM0 ] allocate_block: block=0x11 used 0x13 of 0x20
+00197061455i[MEM0 ] allocate_block: block=0x12 used 0x14 of 0x20
+00202304335i[MEM0 ] allocate_block: block=0x13 used 0x15 of 0x20
+00207547215i[MEM0 ] allocate_block: block=0x14 used 0x16 of 0x20
+00212790095i[MEM0 ] allocate_block: block=0x15 used 0x17 of 0x20
+00218032975i[MEM0 ] allocate_block: block=0x16 used 0x18 of 0x20
+00223275855i[MEM0 ] allocate_block: block=0x17 used 0x19 of 0x20
+00228518735i[MEM0 ] allocate_block: block=0x18 used 0x1a of 0x20
+00233761615i[MEM0 ] allocate_block: block=0x19 used 0x1b of 0x20
+00239004495i[MEM0 ] allocate_block: block=0x1a used 0x1c of 0x20
+00244247375i[MEM0 ] allocate_block: block=0x1b used 0x1d of 0x20
+00249490255i[MEM0 ] allocate_block: block=0x1c used 0x1e of 0x20
+00254733135i[MEM0 ] allocate_block: block=0x1d used 0x1f of 0x20
+00259976015i[MEM0 ] allocate_block: block=0x1e used 0x20 of 0x20

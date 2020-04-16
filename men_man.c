@@ -64,3 +64,15 @@ char* get_mem (int num)
     }
     return (char*) 0xDEADBEEF;
 }
+
+// char** get_mem_convert32bit(char* c)
+// {
+
+//     char* temp [4];
+//     int pos = 0;
+//     for (int i = 0; i >= 0; i--)
+//     {
+//         temp[4]= (c & 0xF0)
+
+//     }
+// }
